@@ -90,7 +90,7 @@ Then build an executable using make:
    cd kite
 
    # make
-   sudo make install
+   sudo make
 
    # meson
    meson setup build && cd build
