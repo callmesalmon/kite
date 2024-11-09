@@ -371,7 +371,7 @@ node_t *parse_expr(parser_t *p)
 			return (node_t*)create_brk_node();
 		}
 
-		if(strcmp(tok.value, "function") == 0)
+		if(strcmp(tok.value, "fun") == 0)
 		{
 			p_del(p); 
 			ptr_list_t args = parse_args(p);

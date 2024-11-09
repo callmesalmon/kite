@@ -202,7 +202,7 @@ char *string_type(char type)
 {
     switch(type) {
         case ot_nil: return "nil";
-        case ot_fun: return "function";
+        case ot_fun: return "fun";
         case ot_nat: return "native";
         case ot_num: return "number";
         case ot_str: return "string";
