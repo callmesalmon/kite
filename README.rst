@@ -68,7 +68,7 @@ stdlib/io.kite:
 Requirements
 ------------
 * `gcc`_ (or any other C compiler) 
-* `make`_
+* `make`_ or `meson`_
 * `git`_ or `gh`_
 
 Installation
@@ -99,5 +99,6 @@ Then build an executable using make:
 
 .. _`gcc`: https://gcc.gnu.org/install
 .. _`make`: https://www.gnu.org/software/make
+.. _`meson`: https://mesonbuild.com/Getting-meson.html
 .. _`git`: https://git-scm.com/downloads 
 .. _`gh`: https://github.com/cli/cli#installation
