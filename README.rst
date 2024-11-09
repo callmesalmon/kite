@@ -88,7 +88,14 @@ Then build an executable using make:
 .. code:: sh
 
    cd kite
+
+   # Build to cwd (might
+   # want to add to $PATH)
    make
+
+   # Build to /usr/bin
+   # (a bit buggy though)
+   sudo make install
 
 .. _`gcc`: https://gcc.gnu.org/install
 .. _`make`: https://www.gnu.org/software/make
