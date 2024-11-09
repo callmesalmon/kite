@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define VERSION_MAJOR 0
-#define VERSION_MINOR 1
+#define VERSION_MAJOR    1
+#define VERSION_MINOR    0
+#define VERSION_PATCH    0
 #define KITE_STR_OBJ_LIM 1024
 
-#define bool char
-#define true 1
+#define bool  char
+#define true  1
 #define false 0
 
 #define dmain_printf(...)
@@ -28,7 +29,7 @@ void help(const char *name)
 
 void about()
 {
-	printf("(name): Kite\n(version): %d.%d\n", VERSION_MAJOR, VERSION_MINOR);
+	printf("(name): Kite\n(version): %d.%d.%d\n", VERSION_MAJOR, VERSION_MINOR, VERSION_PATCH);
 }
 
 int cli(int argc, char **argv)

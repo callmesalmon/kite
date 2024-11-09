@@ -3,8 +3,8 @@ Kite Programming Language
 .. image:: https://img.shields.io/badge/Build%20(fedora)-passing-2a7fd5?logo=fedora&logoColor=2a7fd5&style=for-the-badge
    :alt: Build = Passing
    :target: https://github.com/ElisStaaf/kite
-.. image:: https://img.shields.io/badge/Version-0.1-38c747?style=for-the-badge
-   :alt: Version = 0.1
+.. image:: https://img.shields.io/badge/Version-1.0.0-38c747?style=for-the-badge
+   :alt: Version = 1.0.0
    :target: https://github.com/ElisStaaf/kite
 .. image:: https://img.shields.io/badge/Language-C-grey?logo=c&logoColor=white&labelColor=blue&style=for-the-badge
    :alt: Language = C
