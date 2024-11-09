@@ -3,7 +3,7 @@ CC = gcc
 all: build
 
 build: src/*.c src/*.h
-	$(CC) *.c -o kite -g
+	$(CC) src/*.c -o kite -g
 
 install: src/*.c src/*.h
-	$(CC) *.c -o /usr/bin/kite -g
+	$(CC) src/*.c -o /usr/bin/kite -g

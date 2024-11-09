@@ -28,7 +28,7 @@ void help(const char *name)
 
 void about()
 {
-	printf("Kite language\nversion %d.%d\n", VERSION_MAJOR, VERSION_MINOR);
+	printf("(name): Kite\n(version): %d.%d\n", VERSION_MAJOR, VERSION_MINOR);
 }
 
 int cli(int argc, char **argv)
@@ -62,13 +62,8 @@ int cli(int argc, char **argv)
 	return 0;
 }
 
-#include <time.h>
 int main(int argc, char **argv)
 {
-	clock_t begin = clock();
 	int o = cli(argc, argv);
-	clock_t end = clock();
-	double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-	printf("[finished in %fs]!\n", time_spent);
 	return o;
 }

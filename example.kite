@@ -1,2 +1,0 @@
-import io
-io.write(10)
