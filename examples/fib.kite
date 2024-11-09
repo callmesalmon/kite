@@ -1,7 +1,7 @@
 #!/usr/bin/kite run
 
 let printf = fun(x)
-    write(tostring(x))
+    writeln(tostring(x))
 
 let fib = fun(x)
 	if x < 2 then 1

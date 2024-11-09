@@ -1,6 +1,6 @@
 #!/usr/bin/kite run
 
 let printf = fun(v)
-    write(tostring(v))
+    writeln(tostring(v))
 
 printf(tostring((fun(x) if x < 2 then x else x + @(x - 1))(3)))
