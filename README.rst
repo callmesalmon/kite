@@ -89,3 +89,8 @@ Then build an executable using make:
 
    cd kite
    make
+
+.. _`gcc`: https://gcc.gnu.org/install
+.. _`make`: https://www.gnu.org/software/make
+.. _`git`: https://git-scm.com/downloads 
+.. _`gh`: https://github.com/cli/cli#installation
