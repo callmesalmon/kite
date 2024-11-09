@@ -33,20 +33,14 @@ Simple program to print the number ``100``:
 .. code:: coffeescript
    
    # To print without newline:
-   
    write(tostring(100))
-   
    # or
-   
    import io
    io.print(100)
 
    # To print with a newline:
-   
    writeln(tostring(100))
-
    # or
-
    import io
    io.println(100)
 
