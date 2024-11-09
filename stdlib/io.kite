@@ -1,1 +1,1 @@
-let export write = function(val) __write(tostring(val))
+let export write = fun(val) __write(tostring(val))
