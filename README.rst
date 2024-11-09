@@ -33,7 +33,7 @@ It also includes functions:
 .. code:: coffeescript
 
    let printf = fun(v)
-       __write(tostring(v))
+       write(tostring(v))
 
    let sum = fun(x)
        if x < 2 then x
