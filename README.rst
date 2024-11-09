@@ -36,7 +36,7 @@ Simple program to print the number ``100``:
    
    write(tostring(100))
    
-   # or:
+   # or
    
    import io
    io.print(100)
@@ -49,7 +49,6 @@ Simple program to print the number ``100``:
 
    import io
    io.println(100)
-
 
 It also includes functions:
 
