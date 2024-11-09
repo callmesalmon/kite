@@ -38,12 +38,12 @@ obj_t *stdlib_decl_write(ctx_t *ctx, size_t count, obj_t *args[])
 {
     if(count != 1)
     {
-        stdlib_error_arg_count("__write()", 1, count);
+        stdlib_error_arg_count("write()", 1, count);
         return NULL;
     }
     if(args[0]->type != ot_str)
     {
-        stdlib_error_arg_type("__write()", ot_str, args[0]->type);
+        stdlib_error_arg_type("write()", ot_str, args[0]->type);
         return NULL;
     }
 
@@ -54,7 +54,7 @@ obj_t *stdlib_decl_write(ctx_t *ctx, size_t count, obj_t *args[])
 void stdlib_context(ctx_t *ctx)
 {
     if(!ctx) return;
-    add_var(ctx, create_var("__write", create_nat_obj(ctx, stdlib_decl_write), false));
+    add_var(ctx, create_var("write", create_nat_obj(ctx, stdlib_decl_write), false));
     add_var(ctx, create_var("tostring", create_nat_obj(ctx, stdlib_decl_tostring), false));
 }
 

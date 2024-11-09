@@ -1,3 +1,7 @@
+.. image:: ./kiteimg.jpg
+   :alt: KITE PROGRAMMING LANGUAGE
+   :target: https://github.com/ElisStaaf/kite
+
 Kite Programming Language
 ============================
 .. image:: https://img.shields.io/badge/Build%20(fedora)-passing-2a7fd5?logo=fedora&logoColor=2a7fd5&style=for-the-badge
@@ -32,36 +36,36 @@ It also includes functions:
 
 .. code:: coffeescript
 
-   let write = fun(v)
+   let printf = fun(v)
        __write(tostring(v))
 
    let sum = fun(x)
        if x < 2 then x
        else x + sum(x - 1)
 
-   write(tostring(sum(3)))
+   printf(sum(3))
 
 This does the same thing as the last example:
 
 .. code:: coffeescript
 
-   let write = fun(v)
-       __write(tostring(v))
+   let printf = fun(v)
+       write(tostring(v))
 
-   write(tostring((fun(x) if x < 2 then x else x + @(x - 1))(3)))
+   printf((fun(x) if x < 2 then x else x + @(x - 1))(3))
 
 Oh, almost forgot about Modules:
 
 .. code:: coffeescript
 
    import io
-   io.write(1)
+   io.printf(1)
 
 stdlib/io.kite:
 
 .. code:: coffeescript
 
-   let export write = fun(val) __write(tostring(val))
+   let export printf = fun(val) write(tostring(val))
 
 (All modules should be located in ./stdlib/)
 
