@@ -1,10 +1,14 @@
-project( 'kite', 'c',
+project('kite', 'c',
   version : '0.1',
   license : 'Apache-2.0'
 )
 
-source  = 'src/*.c'
-headers = 'src/*.h'
+dirs = include_directories(
+  'src',
+)
+
+source  = '*.c'
+headers = '*.h'
 bin     = '/usr/bin/kite'
 
 cflags = []
@@ -14,5 +18,6 @@ cflags += [
 
 executable(bin, source,
   install : true,
-  c_args : cflags
+  c_args : cflags,
+  include_directories : dirs
 )
