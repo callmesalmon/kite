@@ -28,40 +28,66 @@ This is a sample of what code written in Kite might look like:
        i = i + 1
    end
 
+Simple program to print the number ``100``:
+
+.. code:: coffeescript
+   
+   # To print without newline:
+   
+   write(tostring(100))
+   
+   # or:
+   
+   import io
+   io.print(100)
+
+   # To print with a newline:
+   
+   writeln(tostring(100))
+
+   # or
+
+   import io
+   io.println(100)
+
+
 It also includes functions:
 
 .. code:: coffeescript
 
-   let printf = fun(v)
-       write(tostring(v))
+   let println = fun(v)
+       writeln(tostring(v))
 
    let sum = fun(x)
        if x < 2 then x
        else x + sum(x - 1)
 
-   printf(sum(3))
+   println(sum(3))
 
 This does the same thing as the last example:
 
 .. code:: coffeescript
 
-   let printf = fun(v)
-       write(tostring(v))
+   let println = fun(v)
+       writeln(tostring(v))
 
-   printf((fun(x) if x < 2 then x else x + @(x - 1))(3))
+   println((fun(x) if x < 2 then x else x + @(x - 1))(3))
 
 Oh, almost forgot about Modules:
 
 .. code:: coffeescript
 
    import io
-   io.printf(1)
+   io.print(10)
+   io.println(20)
+   io.print(30)
 
 stdlib/io.kite:
 
 .. code:: coffeescript
 
-   let export printf = fun(val) write(tostring(val))
+   let export print = fun(val) write(tostring(val))
+   let export println = fun(val) writeln(tostring(val))
 
 (All modules should be located in ./stdlib/)
 

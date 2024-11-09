@@ -1,3 +1,2 @@
-#!/usr/bin/kite run
-
-let export printf = fun(val) write(tostring(val))
+let export print = fun(val) write(tostring(val))
+let export println = fun(val) writeln(tostring(val))
