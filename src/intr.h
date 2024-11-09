@@ -292,7 +292,7 @@ obj_t *eval_node(node_t *node, ctx_t *ctx)
 			obj_t *v = eval_node(((obj_fun_t*)o)->body, &fctx);
 			obj_t *c = copy_obj(ctx, v);
 			free_context(&fctx);
-			dintr_puts("FUNCTION RETURN NON-NATIVE");
+			dintr_puts("ERROR: FUNCTION RETURN NON-NATIVE");
 			return c;
 		}
 		case nt_seq:
