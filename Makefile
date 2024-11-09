@@ -1,9 +1,12 @@
-CC = gcc 
+CC=gcc 
+CFLAGS=-std=c99 -g
 
-all: build
+BIN=/usr/bin/kite
+SOURCE=src/*.c
+HEADERS=src/*.h
 
-build: src/*.c src/*.h
-	$(CC) src/*.c -o kite -g
+$(BIN): $(HEADERS) $(SOURCE)
+	$(CC) $(CFLAGS) $(SOURCE) -o $(BIN)
 
-install: src/*.c src/*.h
-	$(CC) src/*.c -o /usr/bin/kite -g
+.PHONY clean:
+	rm -f $(BIN)
