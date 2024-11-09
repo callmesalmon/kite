@@ -218,9 +218,9 @@ int string_obj(char *buf, size_t bufsz, obj_t *o)
 {
 	if(!o) return 0;
     switch(o->type) {
-        case ot_nil: return snprintf(buf, bufsz, "@(nil)"); break;
-        case ot_fun: return snprintf(buf, bufsz, "@(function)"); break;
-        case ot_nat: return snprintf(buf, bufsz, "@(native)"); break;
+        case ot_nil: return snprintf(buf, bufsz, "{nil}"); break;
+        case ot_fun: return snprintf(buf, bufsz, "{function}"); break;
+        case ot_nat: return snprintf(buf, bufsz, "{native}"); break;
         case ot_num:
 			return snprintf(buf, bufsz, "%f", ((obj_num_t*)o)->num); break;
         case ot_str: return snprintf(buf, bufsz, "%s", ((obj_str_t*)o)->str); break;
