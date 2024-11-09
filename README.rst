@@ -89,13 +89,12 @@ Then build an executable using make:
 
    cd kite
 
-   # Build to cwd (might
-   # want to add to $PATH)
-   make
-
-   # Build to /usr/bin
-   # (a bit buggy though)
+   # make
    sudo make install
+
+   # meson
+   meson setup build && cd build
+   meson compile
 
 .. _`gcc`: https://gcc.gnu.org/install
 .. _`make`: https://www.gnu.org/software/make
