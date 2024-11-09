@@ -1,1 +1,3 @@
+#!/usr/bin/kite run
+
 let export printf = fun(val) write(tostring(val))

@@ -55,9 +55,9 @@ int cli(int argc, char **argv)
 		if(args_count != 0) return help(program_name), 1;
 		about();
 	}
-	else
+	else if (args_count != 0)
 	{
-		return help(program_name), 1;
+		free_context(run_file(argv[1], true));
 	}
 	return 0;
 }
