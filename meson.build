@@ -1,5 +1,5 @@
 project('kite', 'c',
-  version : '0.1',
+  version : '1.0.0',
   license : 'Apache-2.0'
 )
 
