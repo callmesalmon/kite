@@ -1,7 +1,3 @@
-.. image:: ./kiteimg.jpg
-   :alt: KITE PROGRAMMING LANGUAGE
-   :target: https://github.com/ElisStaaf/kite
-
 Kite Programming Language
 ============================
 .. image:: https://img.shields.io/badge/Build%20(fedora)-passing-2a7fd5?logo=fedora&logoColor=2a7fd5&style=for-the-badge
