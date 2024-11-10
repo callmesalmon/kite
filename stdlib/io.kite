@@ -1,5 +1,5 @@
-(let export print = (fn(val)
-    write(tostring(val)))
+let export print = fn(val)
+    write(tostring(val))
 
-(let export println = (fn(val)
-    writeln(tostring(val)))
+let export println = fn(val)
+    writeln(tostring(val))
