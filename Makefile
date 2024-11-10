@@ -9,6 +9,3 @@ all: $(BIN)
 
 $(BIN): $(HEADERS) $(SOURCE)
 	$(CC) $(CFLAGS) $(SOURCE) -o $(BIN)
-
-.PHONY clean:
-	rm -f $(BIN)
