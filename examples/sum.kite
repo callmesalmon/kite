@@ -1,9 +1,9 @@
 #!/usr/bin/kite run
 
-(let println = (fun(v)
+(let println = (fn(v)
     writeln(tostring(v))))
 
-(let sum = (fun(v)
+(let sum = (fn(v)
     if x < 2 then x 
     else x + @(x - 1)))
 
