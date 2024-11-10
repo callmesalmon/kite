@@ -12,7 +12,7 @@ typedef struct ctx_t ctx_t;
 enum obj_type_t
 {
 	ot_num, ot_str, ot_nil,
-	ot_fun, ot_obj, ot_arr,
+	ot_fn, ot_obj, ot_arr,
 	ot_nat, //   TODO!   //
 };
 
@@ -24,7 +24,7 @@ typedef struct { obj_header_t; } obj_t;
 obj_typedef(num, double num;);
 obj_typedef(str, char *str;);
 obj_typedef(nat, obj_t *(*nat)(ctx_t*, size_t, obj_t**););
-obj_typedef(fun, size_t count; char **args; node_t *body; ctx_t *ctx);
+obj_typedef(fn, size_t count; char **args; node_t *body; ctx_t *ctx);
 typedef struct t_001 { obj_t *l, *r; struct t_001 *n; } obj_obj_pair_t;
 obj_obj_pair_t *new_pair(obj_t *l, obj_t *r, obj_obj_pair_t *n)
 {
@@ -102,10 +102,10 @@ obj_t *create_str_obj(ctx_t *ctx, const char *value)
 	return (obj_t*)o;
 }
 
-obj_t *create_fun_obj(ctx_t *ctx, size_t count, char **args, node_t *body, ctx_t *bctx)
+obj_t *create_fn_obj(ctx_t *ctx, size_t count, char **args, node_t *body, ctx_t *bctx)
 {
-	obj_fun_t *o = alloc_obj(fun);
-	o->type = ot_fun;
+	obj_fn_t *o = alloc_obj(fn);
+	o->type = ot_fn;
 	o->count = count;
 	o->body = body;
 	o->ctx = bctx;
@@ -161,12 +161,12 @@ obj_t *copy_obj(ctx_t *ctx, obj_t *o)
 			return create_str_obj(ctx, copy_string(((obj_str_t*)o)->str));
 		case ot_nat:
 			return create_nat_obj(ctx, ((obj_nat_t*)o)->nat);
-		case ot_fun:
-			return create_fun_obj(ctx,
-				((obj_fun_t*)o)->count,
-				((obj_fun_t*)o)->args,
-				((obj_fun_t*)o)->body,
-				((obj_fun_t*)o)->ctx);
+		case ot_fn:
+			return create_fn_obj(ctx,
+				((obj_fn_t*)o)->count,
+				((obj_fn_t*)o)->args,
+				((obj_fn_t*)o)->body,
+				((obj_fn_t*)o)->ctx);
 		default:
             fprintf(stderr, "error: eval -> copy obj not implemented\n");
 			return NULL;
@@ -183,10 +183,10 @@ void free_obj(obj_t *o)
 		case ot_str:
 			free(((obj_str_t*)o)->str);
 			break;
-		case ot_fun:
-			for(size_t i = 0; i < ((obj_fun_t*)o)->count; ++i)
-				free(((obj_fun_t*)o)->args[i]);
-			free(((obj_fun_t*)o)->args);
+		case ot_fn:
+			for(size_t i = 0; i < ((obj_fn_t*)o)->count; ++i)
+				free(((obj_fn_t*)o)->args[i]);
+			free(((obj_fn_t*)o)->args);
 			break;
 		case ot_obj:
 			break;
@@ -202,7 +202,7 @@ char *string_type(char type)
 {
     switch(type) {
         case ot_nil: return "nil";
-        case ot_fun: return "fun";
+        case ot_fn: return "fn";
         case ot_nat: return "native";
         case ot_num: return "number";
         case ot_str: return "string";
@@ -219,7 +219,7 @@ int string_obj(char *buf, size_t bufsz, obj_t *o)
 	if(!o) return 0;
     switch(o->type) {
         case ot_nil: return snprintf(buf, bufsz, "#{nil}"); break;
-        case ot_fun: return snprintf(buf, bufsz, "#{function}"); break;
+        case ot_fn: return snprintf(buf, bufsz, "#{fnction}"); break;
         case ot_nat: return snprintf(buf, bufsz, "#{native}"); break;
         case ot_num:
 			return snprintf(buf, bufsz, "%f", ((obj_num_t*)o)->num); break;

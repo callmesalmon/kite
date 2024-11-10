@@ -22,7 +22,7 @@ typedef enum {
 	nt_bin, nt_let, nt_seq,
 	nt_set, nt_iff, nt_for,
 	nt_brk, nt_ret, nt_cll,
-	nt_fun, nt_get, nt_imp,
+	nt_fn, nt_get, nt_imp,
 } node_type_t;
 
 typedef struct {
@@ -119,7 +119,7 @@ node_let_t *create_let_node(char *name, node_t *value, bool exported) {
 	n->value = value;
 	n->name = copy_string(name);
 	n->exported = exported;
-	if(exported && n->value->type == nt_fun) n->value->allow_free = false;
+	if(exported && n->value->type == nt_fn) n->value->allow_free = false;
 	return n;
 }
 
@@ -181,11 +181,11 @@ typedef struct {
 	node_t *value;
 	size_t count;
 	char *args[];
-} node_fun_t;
+} node_fn_t;
 
-node_fun_t *create_fun_node(node_t *value, size_t count, char *args[]) {
-	node_fun_t *n = malloc(sizeof(node_fun_t) + count * sizeof(char*));
-	n->node.type = nt_fun;
+node_fn_t *create_fn_node(node_t *value, size_t count, char *args[]) {
+	node_fn_t *n = malloc(sizeof(node_fn_t) + count * sizeof(char*));
+	n->node.type = nt_fn;
 	n->node.allow_free = true;
 	n->value = value;
 	n->count = count;
@@ -346,9 +346,9 @@ void free_node_imp(node_t *node, bool free_all) {
 			free_node_imp(n->value, free_all); n->value = NULL;
 			break;
 		}
-		case nt_fun:
+		case nt_fn:
 		{
-			node_fun_t *n = (node_fun_t*)node;
+			node_fn_t *n = (node_fn_t*)node;
 			free_node_imp(n->value, free_all); n->value = NULL;
 			for(size_t i = 0; i < n->count; ++i)
 				free(n->args[i]);
