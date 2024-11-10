@@ -102,7 +102,7 @@ stdlib/func.kite:
 
    let export loop = fn(func, times, until)
        if times < until then @(func, times + 1, until)
-       else func()
+       else func
 
 (All modules should be located in ./stdlib/)
 
