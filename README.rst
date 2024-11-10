@@ -128,14 +128,7 @@ Then build an executable using make:
 
 .. code:: sh
 
-   cd kite
-
-   # make
    sudo make
-
-   # meson
-   meson setup build && cd build
-   meson compile
 
 .. _`gcc`: https://gcc.gnu.org/install
 .. _`make`: https://www.gnu.org/software/make
