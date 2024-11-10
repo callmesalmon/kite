@@ -15,77 +15,73 @@ This is a sample of what code written in Kite might look like:
 
 .. code:: coffeescript
 
-   (let output = 0)
-   (let i = 1)
-   (while i < 10 do
-       (let j = 0)
-
-       (while j < 10 do
-           (output = (output + j * i))
-           (if j == 5 then break)
-           (j = (j + 1))
-       end)
-       (i = (i + 1))
-   end)
-
-(For you lisp haters getting paranoid; no, you don't have to include
-the parentheses, I just think it looks good.)
+   let output = 0
+   let i = 1
+   while i < 10 do
+       let j = 0
+       while j < 10 do
+           output = output + j * i
+           if j == 5 then break
+           j = j + 1
+       end
+       i = i + 1
+   end
 
 Simple program to print the number ``100``:
 
 .. code:: coffeescript
    
    # To print without newline:
-   (write(tostring(100)))
+   write(tostring(100)
    # or
-   (import io)
-   (io.print(100))
+   import io
+   io.print(100)
 
    # To print with a newline:
-   (writeln(tostring(100)))
+   writeln(tostring(100))
    # or
-   (import io)
-   (io.println(100))
+   import io
+   io.println(100)
 
 It also includes functions:
 
 .. code:: coffeescript
 
-   (let println = (fn(v)
-       (writeln(tostring(v)))))
+   let println = fn(v)
+       writeln(tostring(v)
 
-   (let sum = (fn(x)
-       (if x < 2 then (x))
-       (else (x + sum(x - 1)))))
+   let sum = fn(x)
+       if x < 2 then x
+       else x + sum(x - 1)
 
-   (println(sum(3)))
+   println(sum(3))
 
 This does the same thing as the last example:
 
 .. code:: coffeescript
 
-   (let println = (fn(v)
-       (writeln(tostring(v)))))
+   let println = fn(v)
+       writeln(tostring(v))
 
-   (println((fn(x) if x < 2 then (x) else (x + @(x - 1)))(3)))
+   println((fn(x) if x < 2 then x else x + @(x - 1))(3))
 
 Oh, almost forgot about Modules:
 
 .. code:: coffeescript
 
-   (import io)
-   (io.print(10))
-   (io.println(20))
-   (io.print(30))
+   import io
+   io.print(10)
+   io.println(20)
+   io.print(30)
 
 stdlib/io.kite:
 
 .. code:: coffeescript
 
-   (let export print = (fn(val)
-       (write(tostring(val)))))
-   (let export println = (fn(val)
-       (writeln(tostring(val)))))
+   let export print = fn(val)
+       write(tostring(val))
+   let export println = fn(val)
+       writeln(tostring(val))
 
 (All modules should be located in ./stdlib/)
 
