@@ -11,21 +11,23 @@ Kite Programming Language
    :target: https://github.com/ElisStaaf/kite
 
 Kite is a pure and minimalistic programming language written in C.
-This is a sample of what code written in Kite might look like:
+It can be a lot, but if I'd *have* to classify it, it's a functional
+programming language with imperative elements. This is a sample of what
+code written in Kite might look like:
 
 .. code:: coffeescript
 
-   let output = 0
-   let i = 1
-   while i < 10 do
-       let j = 0
-       while j < 10 do
-           output = output + j * i
-           if j == 5 then break
-           j = j + 1
-       end
-       i = i + 1
-   end
+   let loop = fn(func, times, until)
+       if times < until then @(func, times + 1, until)
+       else func
+
+   let incr = fn(num)
+       num + 1
+
+   let mainloop = fn(k, j, i)
+       loop(incr(k), j, i)
+
+   loop(mainloop(1, 5, 25), 0, 10)
 
 Simple program to print the number ``100``:
 
