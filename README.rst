@@ -28,6 +28,9 @@ This is a sample of what code written in Kite might look like:
        (i = (i + 1))
    end)
 
+(For you lisp haters getting paranoid; no, you don't have to include
+the parentheses, I just think it looks good.)
+
 Simple program to print the number ``100``:
 
 .. code:: coffeescript
