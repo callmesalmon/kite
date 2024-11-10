@@ -1,10 +1,10 @@
 #!/usr/bin/kite run
 
-(let println = (fn(x)
-    (writeln(tostring(x)))))
+let println = fn(x)
+    writeln(tostring(x))
 
-(let fib = (fn(x)
+let fib = fn(x)
 	if x < 2 then 1
-	else fib(x - 1) + fib(x - 2)))
+	else fib(x - 1) + fib(x - 2)
 
-(println(fib(10)))
+println(fib(10))
