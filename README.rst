@@ -83,6 +83,25 @@ stdlib/io.kite:
    let export println = fn(val)
        writeln(tostring(val))
 
+Another module; func:
+
+.. code:: coffeescript
+
+   import func
+
+   let test = fn()
+       writeln(tostring(100))
+
+    func.loop(test(), 0, 10)
+
+stdlib/func.kite:
+
+.. code:: coffeescript
+
+   let export loop = fn(func, times, until)
+       if times < until then @(func, times + 1)
+       else func()
+
 (All modules should be located in ./stdlib/)
 
 Requirements
