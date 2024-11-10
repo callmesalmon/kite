@@ -51,10 +51,10 @@ It also includes functions:
 
 .. code:: coffeescript
 
-   (let println = (fun(v)
+   (let println = (fn(v)
        (writeln(tostring(v)))))
 
-   (let sum = (fun(x)
+   (let sum = (fn(x)
        (if x < 2 then (x))
        (else (x + sum(x - 1)))))
 
@@ -64,10 +64,10 @@ This does the same thing as the last example:
 
 .. code:: coffeescript
 
-   (let println = (fun(v)
+   (let println = (fn(v)
        (writeln(tostring(v)))))
 
-   (println((fun(x) if x < 2 then (x) else (x + @(x - 1)))(3)))
+   (println((fn(x) if x < 2 then (x) else (x + @(x - 1)))(3)))
 
 Oh, almost forgot about Modules:
 
@@ -82,8 +82,10 @@ stdlib/io.kite:
 
 .. code:: coffeescript
 
-   (let export print = (fun(val) (write(tostring(val)))))
-   (let export println = (fun(val) (writeln(tostring(val)))))
+   (let export print = (fn(val)
+       (write(tostring(val)))))
+   (let export println = (fn(val)
+       (writeln(tostring(val)))))
 
 (All modules should be located in ./stdlib/)
 
