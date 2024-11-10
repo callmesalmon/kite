@@ -11,9 +11,9 @@
 
 typedef struct
 {
-	token_list_t *toks;
+	token_list_t             *toks;
 	struct token_list_cell_t *ptr, *last;
-	bool fail;
+	bool                     fail;
 } parser_t;
 char *copy_string(const char *other);
 
@@ -70,7 +70,7 @@ node_t *parse_expr(parser_t *p);
 typedef struct
 {
 	size_t count;
-	void **data;
+	void   **data;
 } ptr_list_t;
 
 ptr_list_t create_ptr_list()

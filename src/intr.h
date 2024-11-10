@@ -34,7 +34,7 @@ char *string_node(node_t *node)
 		case nt_brk: return "brk";
 		case nt_ret: return "for";
 		case nt_for: return "for";
-		case nt_fn: return "fn";
+		case nt_fn:  return "fn";
 		case nt_cll: return "cll";
 		case nt_seq: return "seq";
 		case nt_bin:

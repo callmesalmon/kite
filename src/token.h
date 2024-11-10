@@ -17,7 +17,7 @@ typedef enum
 
 typedef struct
 {
-	char *value;
+	char         *value;
 	token_type_t type;
 } token_t;
 
@@ -28,7 +28,7 @@ token_t token_eof()
 
 struct token_list_cell_t
 {
-	token_t token;
+	token_t                  token;
 	struct token_list_cell_t *next;
 };
 

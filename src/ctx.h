@@ -38,18 +38,18 @@ obj_typedef(obj, size_t count; obj_obj_pair_t *first;);
 
 typedef struct
 {
-	char *name;
+	char  *name;
 	obj_t *value;
-	bool exported;
+	bool  exported;
 } var_t;
 
 struct ctx_t
 {
 	size_t count, obj_count;
-	var_t *vars;
-	obj_t **pool;
-	ctx_t *parent;
-	bool in_loop;
+	var_t  *vars;
+	obj_t  **pool;
+	ctx_t  *parent;
+	bool   in_loop;
 };
 
 void print_obj(obj_t *o);
@@ -105,11 +105,11 @@ obj_t *create_str_obj(ctx_t *ctx, const char *value)
 obj_t *create_fn_obj(ctx_t *ctx, size_t count, char **args, node_t *body, ctx_t *bctx)
 {
 	obj_fn_t *o = alloc_obj(fn);
-	o->type = ot_fn;
+	o->type  = ot_fn;
 	o->count = count;
-	o->body = body;
-	o->ctx = bctx;
-	o->args = malloc(sizeof(char*) * count);
+	o->body  = body;
+	o->ctx   = bctx;
+	o->args  = malloc(sizeof(char*) * count);
 	for(size_t i = 0; i < count; ++i)
 		o->args[i] = copy_string(args[i]);
 	add_obj(ctx, (obj_t*)o);
@@ -202,7 +202,7 @@ char *string_type(char type)
 {
     switch(type) {
         case ot_nil: return "nil";
-        case ot_fn: return "fn";
+        case ot_fn:  return "fn";
         case ot_nat: return "native";
         case ot_num: return "number";
         case ot_str: return "string";
@@ -218,9 +218,9 @@ int string_obj(char *buf, size_t bufsz, obj_t *o)
 {
 	if(!o) return 0;
     switch(o->type) {
-        case ot_nil: return snprintf(buf, bufsz, "#{nil}"); break;
-        case ot_fn: return snprintf(buf, bufsz, "#{fnction}"); break;
-        case ot_nat: return snprintf(buf, bufsz, "#{native}"); break;
+        case ot_nil: return snprintf(buf, bufsz, "[nil]"); break;
+        case ot_fn: return snprintf(buf, bufsz, "[function}"); break;
+        case ot_nat: return snprintf(buf, bufsz, "[native]"); break;
         case ot_num:
 			return snprintf(buf, bufsz, "%f", ((obj_num_t*)o)->num); break;
         case ot_str: return snprintf(buf, bufsz, "%s", ((obj_str_t*)o)->str); break;
