@@ -128,6 +128,7 @@ Then build an executable using make:
 
 .. code:: sh
 
+   cd kite
    sudo make
 
 .. _`gcc`: https://gcc.gnu.org/install
