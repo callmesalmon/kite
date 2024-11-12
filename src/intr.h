@@ -34,7 +34,7 @@ char *string_node(node_t *node)
 		case nt_brk: return "brk";
 		case nt_ret: return "for";
 		case nt_for: return "for";
-		case nt_fn:  return "fn";
+		case nt_fun: return "fun";
 		case nt_cll: return "cll";
 		case nt_seq: return "seq";
 		case nt_bin:
@@ -243,10 +243,10 @@ obj_t *eval_node(node_t *node, ctx_t *ctx)
 			ctx->in_loop = 0;
 			return val;
 		}
-		case nt_fn:
+		case nt_fun:
 		{
-			node_fn_t* ni = (node_fn_t*)node;
-			return create_fn_obj(ctx, ni->count, ni->args, ni->value, ctx);
+			node_fun_t* ni = (node_fun_t*)node;
+			return create_fun_obj(ctx, ni->count, ni->args, ni->value, ctx);
 		}
 		case nt_cll:
 		{
@@ -264,32 +264,32 @@ obj_t *eval_node(node_t *node, ctx_t *ctx)
 			}
 			dintr_puts("FUNCTION CALL NON-NATIVE");
 
-			if(o->type != ot_fn)
+			if(o->type != ot_fun)
 			{
-				fprintf(stderr, "error: eval -> can only call a fnction!\n");
+				fprintf(stderr, "error: eval -> can only call a function!\n");
 				return NULL;
 			}
-			if(((obj_fn_t*)o)->count > nc->count)
+			if(((obj_fun_t*)o)->count > nc->count)
 			{
 				fprintf(
 					stderr,
-					"error: eval -> fnction needs %zu argument%s, but %zu %s provided!\n",
-					((obj_fn_t*)o)->count,
-					((obj_fn_t*)o)->count == 1 ? "" : "s",
+					"error: eval -> function needs %zu argument%s, but %zu %s provided!\n",
+					((obj_fun_t*)o)->count,
+					((obj_fun_t*)o)->count == 1 ? "" : "s",
 					nc->count,
 					nc->count == 1 ? "was" : "were"
 				);
 				return NULL;
 			}
-			ctx_t *bctx = ((obj_fn_t*)o)->ctx;
+			ctx_t *bctx = ((obj_fun_t*)o)->ctx;
 			ctx_t fctx = create_context(bctx);
 			add_var(&fctx, create_var("@", o, false));
 			for(size_t i = 0; i < nc->count; ++i)
 				add_var(&fctx, create_var(
-					((obj_fn_t*)o)->args[i],
+					((obj_fun_t*)o)->args[i],
 					eval_node(nc->args[i], ctx),
 					false));
-			obj_t *v = eval_node(((obj_fn_t*)o)->body, &fctx);
+			obj_t *v = eval_node(((obj_fun_t*)o)->body, &fctx);
 			obj_t *c = copy_obj(ctx, v);
 			free_context(&fctx);
 			dintr_puts("ERROR: FUNCTION RETURN NON-NATIVE");

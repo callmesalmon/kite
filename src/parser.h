@@ -371,13 +371,13 @@ node_t *parse_expr(parser_t *p)
 			return (node_t*)create_brk_node();
 		}
 
-		if(strcmp(tok.value, "fn") == 0)
+		if(strcmp(tok.value, "fun") == 0)
 		{
 			p_del(p); 
 			ptr_list_t args = parse_args(p);
 			node_t *expr = parse_expr(p);
 
-			node_fn_t *f = create_fn_node(expr, args.count, (char**)args.data);
+			node_fun_t *f = create_fun_node(expr, args.count, (char**)args.data);
 			free_ptr_list(&args, &free);
 			return (node_t*)f;
 		}
