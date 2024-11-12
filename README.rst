@@ -17,14 +17,14 @@ code written in Kite might look like:
 
 .. code:: coffeescript
 
-   let loop = fn(func, times, until)
+   let loop = fun(func, times, until)
        if times < until then @(func, times + 1, until)
        else func
 
-   let incr = fn(num)
+   let incr = fun(num)
        num + 1
 
-   let mainloop = fn(k, j, i)
+   let mainloop = fun(k, j, i)
        loop(incr(k), j, i)
 
    loop(mainloop(1, 5, 25), 0, 10)
@@ -49,10 +49,10 @@ It also includes functions:
 
 .. code:: coffeescript
 
-   let println = fn(v)
+   let println = fun(v)
        writeln(tostring(v)
 
-   let sum = fn(x)
+   let sum = fun(x)
        if x < 2 then x
        else x + sum(x - 1)
 
@@ -62,10 +62,10 @@ This does the same thing as the last example:
 
 .. code:: coffeescript
 
-   let println = fn(v)
+   let println = fun(v)
        writeln(tostring(v))
 
-   println((fn(x) if x < 2 then x else x + @(x - 1))(3))
+   println((fun(x) if x < 2 then x else x + @(x - 1))(3))
 
 Oh, almost forgot about Modules:
 
@@ -80,9 +80,9 @@ stdlib/io.kite:
 
 .. code:: coffeescript
 
-   let export print = fn(val)
+   let export print = fun(val)
        write(tostring(val))
-   let export println = fn(val)
+   let export println = fun(val)
        writeln(tostring(val))
 
 Another module; func:
@@ -91,7 +91,7 @@ Another module; func:
 
    import func
 
-   let test = fn()
+   let test = fun()
        writeln(tostring(100))
 
     func.loop(test(), 0, 10)
@@ -100,7 +100,7 @@ stdlib/func.kite:
 
 .. code:: coffeescript
 
-   let export loop = fn(func, times, until)
+   let export loop = fun(func, times, until)
        if times < until then @(func, times + 1, until)
        else func
 
