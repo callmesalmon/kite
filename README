@@ -7,7 +7,7 @@ programming language with imperative elements. This is a sample of what
 code written in Kite might look like:
 
     let loop = fun(func, times, until)
-        if times < until then @(func, times + 1, until)
+        if times < until do @(func, times + 1, until)
         else func
 
     let incr = fun(num)
@@ -38,7 +38,7 @@ It also includes functions:
         writeln(tostring(v)
 
     let sum = fun(x)
-        if x < 2 then x
+        if x < 2 do x
         else x + sum(x - 1)
 
     println(sum(3))
@@ -48,7 +48,7 @@ This does the same thing as the last example:
     let println = fun(v)
         writeln(tostring(v))
 
-    println((fun(x) if x < 2 then x else x + @(x - 1))(3))
+    println((fun(x) if x < 2 do x else x + @(x - 1))(3))
 
 Oh, almost forgot about Modules:
 
@@ -76,7 +76,7 @@ Another module; func:
 stdlib/func.kite:
 
     let export loop = fun(func, times, until)
-        if times < until then @(func, times + 1, until)
+        if times < until do @(func, times + 1, until)
         else func
 
 (All modules should be located in ./stdlib/)
