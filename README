@@ -1,5 +1,6 @@
 Kite Programming Language
-============================
+=========================
+
 Kite is a pure and minimalistic programming language written in C.
 It can be a lot, but if I'd *have* to classify it, it's a functional
 programming language with imperative elements. This is a sample of what
