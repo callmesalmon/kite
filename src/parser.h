@@ -335,7 +335,7 @@ node_t *parse_expr(parser_t *p)
 
 			node_t *cond = parse_expr(p);
 
-			if(strcmp(p_get(p).value, "then") != 0)
+			if(strcmp(p_get(p).value, "do") != 0)
 			{
 				free_node(cond);
 				return parser_error(p, "expected 'then'");

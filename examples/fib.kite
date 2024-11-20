@@ -4,7 +4,7 @@ let println = fun(x)
     writeln(tostring(x))
 
 let fib = fun(x)
-	if x < 2 then 1
+	if x < 2 do 1
 	else fib(x - 1) + fib(x - 2)
 
 println(fib(10))

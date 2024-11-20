@@ -4,7 +4,7 @@ let println = fun(v)
     writeln(tostring(v))
 
 let sum = fun(v)
-    if x < 2 then x 
+    if x < 2 do x 
     else x + @(x - 1)
 
 println(sum(3))
