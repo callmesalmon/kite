@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define VERSION          "386K"
+#define VERSION          "386Kite"
 #define KITE_STR_OBJ_LIM 1024
 
 #define bool  char
