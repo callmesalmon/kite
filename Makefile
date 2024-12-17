@@ -1,7 +1,7 @@
 CC=gcc 
 CFLAGS=-std=c99 -g
 
-BIN=/usr/bin/kite
+BIN=/usr/local/bin/kite
 SOURCE=src/*.c
 HEADERS=src/*.h
 
