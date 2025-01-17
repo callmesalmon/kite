@@ -360,7 +360,7 @@ obj_t *eval_node(node_t *node, ctx_t *ctx)
 		case nt_imp: 
 		{
 			node_imp_t* n = (node_imp_t*)node;
-			static const char prefix[] = "./stdlib/";
+			static const char prefix[] = "./lib/";
 			static const char suffix[] = ".kite";
 
 			size_t value_len = strlen(n->value);
