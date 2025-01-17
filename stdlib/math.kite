@@ -1,0 +1,7 @@
+let facto = fun(n)
+    if n == 1 do n
+    else n * @(n - 1)
+
+let fib = fun(x)
+	if x < 2 do 1
+	else @(x - 1) + @(x - 2)
