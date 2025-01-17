@@ -95,6 +95,27 @@ let export loop = fun(func, times, until)
     else func
 ```
 
+Another one; math:
+
+```coffeescript
+import math
+
+writeln(tostring(math.facto(5)))
+writeln(tostring(math.fib(10)))
+```
+
+stdlib/math.kite:
+
+```coffeescript
+let facto = fun(n)
+    if n == 1 do n
+    else n * @(n - 1)
+
+let fib = fun(x)
+	if x < 2 do 1
+	else @(x - 1) + @(x - 2)
+```
+
 (All modules should be located in ./stdlib/)
 
 Requirements
