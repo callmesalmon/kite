@@ -5,6 +5,6 @@ let println = fun(x)
 
 let fib = fun(x)
 	if x < 2 do 1
-	else fib(x - 1) + fib(x - 2)
+	else @(x - 1) + @(x - 2)
 
 println(fib(10))

@@ -1,0 +1,10 @@
+#!/usr/bin/kite run
+
+let println = fun(x)
+    writeln(tostring(x))
+
+let facto = fun(n)
+    if n == 1 do n
+    else n * @(n - 1)
+
+println(facto(5))
