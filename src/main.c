@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+
 #define VERSION          "386Kite"
 #define KITE_STR_OBJ_LIM 1024
 
@@ -26,7 +27,8 @@ void help(const char *name)
 
 void about()
 {
-	printf("(name): Kite\n(version): %s\n", VERSION);
+	printf("[name] Kite\n");
+    printf("[version] %s\n", VERSION);
 }
 
 int cli(int argc, char **argv)
@@ -53,10 +55,14 @@ int cli(int argc, char **argv)
 		if(args_count != 0) return help(program_name), 1;
 		about();
 	}
-	else if (args_count != 0)
+	else if (args_count == 0)
 	{
-		free_context(run_file(argv[1], true));
+        printf("%s: Uknown command.\n", program_name);
 	}
+    else
+    {
+        about();
+    }
 	return 0;
 }
 
