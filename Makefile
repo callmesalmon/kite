@@ -1,11 +1,18 @@
+.PHONY: build install
+
 CC     = clang
 CFLAGS = -std=c99 -g
 
-BINARY = /usr/local/bin/kite
-SOURCE = src/*.c
-HEADER = src/*.h
+BINARY        = kite
+BINARY_PREFIX = /usr/local/bin
 
-all: $(BINARY)
+SOURCES = $(wildcard src/*.c)
+HEADERS = $(wildcard src/*.h)
 
-$(BINARY): $(HEADER) $(SOURCE)
-	$(CC) $(CFLAGS) $(SOURCE) -o $(BINARY)
+all: build install
+
+build: $(HEADERS) $(SOURCES)
+	$(CC) $(CFLAGS) $(SOURCES) -o $(BINARY)
+
+install: build
+	mv $(BINARY) $(BINARY_PREFIX)/$(BINARY)
