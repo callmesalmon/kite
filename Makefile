@@ -1,11 +1,11 @@
-CC=gcc 
-CFLAGS=-std=c99 -g
+CC     = clang
+CFLAGS = -std=c99 -g
 
-BIN=/usr/local/bin/kite
-SOURCE=src/*.c
-HEADERS=src/*.h
+BINARY = /usr/local/bin/kite
+SOURCE = src/*.c
+HEADER = src/*.h
 
-all: $(BIN)
+all: $(BINARY)
 
-$(BIN): $(HEADERS) $(SOURCE)
-	$(CC) $(CFLAGS) $(SOURCE) -o $(BIN)
+$(BINARY): $(HEADER) $(SOURCE)
+	$(CC) $(CFLAGS) $(SOURCE) -o $(BINARY)

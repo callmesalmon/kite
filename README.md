@@ -122,9 +122,9 @@ by putting all libraries in ./lib/.
 
 Requirements
 ------------
-* https://gcc.gnu.org/install
-* https://www.gnu.org/software/make
-* https://git-scm.com/downloads or https://github.com/cli/cli#installation
+* [clang](https://clang.llvm.org/)
+* [make](https://www.gnu.org/software/make)
+* [git](https://git-scm.com/downloads) or [Github CLI](https://github.com/cli/cli#installation)
 
 Installation
 ------------
