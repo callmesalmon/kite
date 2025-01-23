@@ -12,7 +12,7 @@
 char *copy_string(const char *other) {
 	if(!other) return NULL;
 	size_t len = strlen(other) + 1;
-	char *s = malloc(len);
+	char *s = (char *)malloc(len);
 	memcpy(s, other, len);
 	return s;
 }
@@ -41,7 +41,7 @@ typedef struct {
 
 node_num_t *create_num_node(double value) {
 	dast_printf("create num node %f\n", value);
-	node_num_t *n = alloc_node(num);
+	node_num_t *n = (node_num_t*)alloc_node(num);
 	n->node.type = nt_num;
 	n->node.allow_free = true;
 	n->value = value;
@@ -55,7 +55,7 @@ typedef struct {
 } node_var_t;
 
 node_var_t *create_var_node(char *value) {
-	node_var_t *n = alloc_node(var);
+	node_var_t *n = (node_var_t*)alloc_node(var);
 	n->node.type = nt_var;
 	n->node.allow_free = true;
 	n->value = copy_string(value);
@@ -68,7 +68,7 @@ typedef struct {
 } node_imp_t;
 
 node_imp_t *create_imp_node(char *value) {
-	node_imp_t *n = alloc_node(var);
+	node_imp_t *n = (node_imp_t*)alloc_node(var);
 	n->node.type = nt_imp;
 	n->node.allow_free = true;
 	n->value = copy_string(value);
@@ -97,7 +97,7 @@ typedef struct {
 } node_bin_t;
 
 node_bin_t *create_bin_node(char op, node_t *lhs, node_t *rhs) {
-	node_bin_t *n = alloc_node(bin);
+	node_bin_t *n = (node_bin_t*)alloc_node(bin);
 	n->node.type = nt_bin;
 	n->node.allow_free = true;
 	n->lhs = lhs; n->rhs = rhs;
@@ -113,7 +113,7 @@ typedef struct {
 } node_let_t;
 
 node_let_t *create_let_node(char *name, node_t *value, bool exported) {
-	node_let_t *n = alloc_node(let);
+	node_let_t *n = (node_let_t*)alloc_node(let);
 	n->node.type = nt_let;
 	n->node.allow_free = true;
 	n->value = value;
@@ -129,7 +129,7 @@ typedef struct {
 } node_iff_t;
 
 node_iff_t *create_iff_node(node_t *cond, node_t *body, node_t *otherwise) {
-	node_iff_t *n = alloc_node(iff);
+	node_iff_t *n = (node_iff_t*)alloc_node(iff);
 	n->node.type = nt_iff;
 	n->node.allow_free = true;
 	n->cond = cond;
@@ -144,7 +144,7 @@ typedef struct {
 } node_for_t;
 
 node_for_t *create_for_node(node_t *cond, node_t *body) {
-	node_for_t *n = alloc_node(for);
+	node_for_t *n = (node_for_t*)alloc_node(for);
 	n->node.type = nt_for;
 	n->node.allow_free = true;
 	n->cond = cond;
@@ -157,7 +157,7 @@ typedef struct {
 } node_brk_t;
 
 node_brk_t *create_brk_node() {
-	node_brk_t *n = alloc_node(brk);
+	node_brk_t *n = (node_brk_t*)alloc_node(brk);
 	n->node.type = nt_brk;
 	n->node.allow_free = true;
 	return n;
@@ -169,7 +169,7 @@ typedef struct {
 } node_ret_t;
 
 node_ret_t *create_ret_node(node_t *value) {
-	node_ret_t *n = alloc_node(ret);
+	node_ret_t *n = (node_ret_t*)alloc_node(ret);
 	n->node.type = nt_ret;
 	n->node.allow_free = true;
 	n->value = value;
@@ -184,7 +184,7 @@ typedef struct {
 } node_fun_t;
 
 node_fun_t *create_fun_node(node_t *value, size_t count, char *args[]) {
-	node_fun_t *n = malloc(sizeof(node_fun_t) + count * sizeof(char*));
+	node_fun_t *n = (node_fun_t*)malloc(sizeof(node_fun_t) + count * sizeof(char*));
 	n->node.type = nt_fun;
 	n->node.allow_free = true;
 	n->value = value;
@@ -202,7 +202,7 @@ typedef struct {
 } node_cll_t;
 
 node_cll_t *create_cll_node(node_t *value, size_t count, node_t *args[]) {
-	node_cll_t *n = malloc(sizeof(node_cll_t) + count * sizeof(char*));
+	node_cll_t *n = (node_cll_t*)malloc(sizeof(node_cll_t) + count * sizeof(char*));
 	n->node.type = nt_cll;
 	n->node.allow_free = true;
 	n->value = value;
@@ -219,7 +219,7 @@ typedef struct {
 } node_set_t;
 
 node_set_t *create_set_node(char *name, node_t *value) {
-	node_set_t *n = alloc_node(set);
+	node_set_t *n = (node_set_t*)alloc_node(set);
 	n->node.type = nt_set;
 	n->node.allow_free = true;
 	n->value = value;
@@ -234,7 +234,7 @@ typedef struct {
 } node_get_t;
 
 node_get_t *create_get_node(node_t *from, node_t *value) {
-	node_get_t *n = alloc_node(get);
+	node_get_t *n = (node_get_t*)alloc_node(get);
 	dast_printf("create_get_node: 0x%x\n", n);
 	dast_printf("val: '%s'\n", ((node_var_t*)value)->value);
 	n->node.type = nt_get;
