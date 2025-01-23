@@ -116,9 +116,9 @@ let fib = fun(x)
 	else @(x - 1) + @(x - 2)
 ```
 
-All modules should be located in ./lib/. This means that you
+All modules should be located in ``lib``. This means that you
 can create your own Kite project, and you can import other files
-by putting all libraries in ./lib/.
+by putting all libraries in ``lib``.
 
 Requirements
 ------------
