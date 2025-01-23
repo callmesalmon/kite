@@ -10,6 +10,7 @@ SOURCES = $(wildcard src/*.c)
 HEADERS = $(wildcard src/*.h)
 
 all: build install
+	@echo "Build completed!"
 
 build: $(HEADERS) $(SOURCES)
 	$(CC) $(CFLAGS) $(SOURCES) -o $(BINARY)
