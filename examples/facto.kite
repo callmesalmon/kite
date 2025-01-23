@@ -1,4 +1,4 @@
-#!/usr/bin/kite run
+#!/usr/local/bin/kite run
 
 let println = fun(x)
     writeln(tostring(x))
