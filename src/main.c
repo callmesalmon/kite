@@ -57,7 +57,7 @@ int cli(int argc, char **argv)
 	}
 	else if (args_count == 0)
 	{
-        printf("%s: Uknown command.\n", program_name);
+        printf("%s: Unknown command.\n", program_name);
 	}
     else
     {
