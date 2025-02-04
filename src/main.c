@@ -17,9 +17,9 @@ void help(const char *name)
 {
 	printf(
 		"Usage:\n"
-		"  %s run <filename>\n"
-		"  %s help\n"
-		"  %s about\n",
+		"    %s run <filename>\n"
+		"    %s help\n"
+		"    %s about\n",
 
 		name, name, name
 	);
@@ -27,8 +27,8 @@ void help(const char *name)
 
 void about()
 {
-	printf("[name] Kite\n");
-    printf("[version] %s\n", VERSION);
+	printf("Name: Kite\n");
+    printf("Version: %s\n", VERSION);
 }
 
 int cli(int argc, char **argv)
@@ -57,7 +57,7 @@ int cli(int argc, char **argv)
 	}
 	else if (args_count == 0)
 	{
-        printf("%s: Unknown command.\n", program_name);
+        printf("%s: Unknown command!\n", program_name);
 	}
     else
     {
