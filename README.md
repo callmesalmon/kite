@@ -132,10 +132,10 @@ To install, firstly clone the repo:
 
 ```sh
 # git
-git clone https://github.com/ElisStaaf/kite
+git clone https://github.com/callmesalmon/kite
 
 # gh
-gh repo clone ElisStaaf/kite
+gh repo clone callmesalmon/kite
 ```
 
 Then build an executable using make:
