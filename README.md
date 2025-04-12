@@ -58,6 +58,11 @@ let println = fun(v)
 println((fun(x) if x < 2 do x else x + @(x - 1))(3))
 ```
 
+> [!NOTE]
+> Pro tip: Shebangs work just fine with kite! If you can't be bothered to
+> run ``kite run file.kite``, just put ``#!/usr/local/bin/kite run`` in file.kite,
+> run ``chmod +x file.kite`` and then you can run file.kite by ``./file.kite``!
+
 Oh, almost forgot about Modules:
 
 ```coffeescript
@@ -115,10 +120,10 @@ let fib = fun(x)
 	if x < 2 do 1
 	else @(x - 1) + @(x - 2)
 ```
-
-All modules should be located in ``lib``. This means that you
-can create your own Kite project, and you can import other files
-by putting all libraries in ``lib``.
+> [!NOTE]
+> All modules should be located in ``lib``. This means that you
+> can create your own Kite project, and you can import other files
+> by putting all libraries in ``lib``.
 
 Requirements
 ------------
