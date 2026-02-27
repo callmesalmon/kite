@@ -9,7 +9,7 @@ BINARY_PREFIX = /usr/local/bin
 SOURCES = $(wildcard src/*.c)
 HEADERS = $(wildcard src/*.h)
 
-all: build install
+all: build
 	@echo "Build completed!"
 
 build: $(HEADERS) $(SOURCES)

@@ -147,9 +147,8 @@ Then build an executable using make:
 
 ```sh
 cd kite
-sudo make
 
-# NOTE: To only build the project,
-#       not install it, run:
-make build
+## NOTE: run 'sudo make install' to install to
+## /usr/local/bin
+sudo make
 ```
